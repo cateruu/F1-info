@@ -1,0 +1,20 @@
+.nav {
+  height: 100vh;
+  width: 100px;
+  background-color: var(--bg-panel);
+  overflow: hidden;
+  transition: 0.1s;
+}
+
+.nav.open {
+  width: 300px;
+  overflow: visible;
+}
+
+.container {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 35px;
+}

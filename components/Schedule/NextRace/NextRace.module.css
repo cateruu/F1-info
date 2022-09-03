@@ -97,3 +97,21 @@
 .fp1 {
   grid-area: fp1;
 }
+
+.track {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.track p,
+.track h2 {
+  margin: 0;
+  color: var(--font);
+}
+
+.track p {
+  color: var(--font-secondary);
+}

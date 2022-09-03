@@ -99,8 +99,10 @@ const NextRace = ({ data }: Props) => {
           </div>
         </div>
         <div className={styles.track}>
-          <h4>Track</h4>
-          <h2>{data.track}</h2>
+          <p>Track</p>
+          <h2>{`${data.track.slice(0, 1).toUpperCase()}${data.track.slice(
+            1
+          )}`}</h2>
         </div>
       </div>
     </section>

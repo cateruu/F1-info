@@ -12,7 +12,10 @@ const Navbar = () => {
   return (
     <nav className={`${styles.nav} ${navOpen === true && styles.open}`}>
       <div className={styles.container}>
-        <Hamburger openNavHandler={openNavHandler} navOpen={navOpen} />
+        <header className={styles.header}>
+          <Hamburger openNavHandler={openNavHandler} navOpen={navOpen} />
+          <p className={styles.headerText}>F1 Info</p>
+        </header>
       </div>
     </nav>
   );

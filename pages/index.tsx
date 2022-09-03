@@ -27,34 +27,38 @@ export const getStaticProps: GetStaticProps = async () => {
   const nextRaceReq = await fetch(
     'https://ergast.com/api/f1/current/next.json'
   );
-  const nextRaceAPI: NextRaceAPI = await nextRaceReq.json();
-  const nextRaceData = {
-    name: nextRaceAPI.MRData.RaceTable.Races[0].raceName,
-    country: nextRaceAPI.MRData.RaceTable.Races[0].Circuit.Location.country,
-    track: nextRaceAPI.MRData.RaceTable.Races[0].Circuit.circuitId,
-    sessions: {
-      fp1: {
-        time: nextRaceAPI.MRData.RaceTable.Races[0].FirstPractice.time,
-        date: nextRaceAPI.MRData.RaceTable.Races[0].FirstPractice.date,
+
+  let nextRaceData;
+  if (nextRaceReq.ok) {
+    const nextRaceAPI: NextRaceAPI = await nextRaceReq.json();
+    nextRaceData = {
+      name: nextRaceAPI.MRData.RaceTable.Races[0].raceName,
+      country: nextRaceAPI.MRData.RaceTable.Races[0].Circuit.Location.country,
+      track: nextRaceAPI.MRData.RaceTable.Races[0].Circuit.circuitId,
+      sessions: {
+        fp1: {
+          time: nextRaceAPI.MRData.RaceTable.Races[0].FirstPractice.time,
+          date: nextRaceAPI.MRData.RaceTable.Races[0].FirstPractice.date,
+        },
+        fp2: {
+          time: nextRaceAPI.MRData.RaceTable.Races[0].SecondPractice.time,
+          date: nextRaceAPI.MRData.RaceTable.Races[0].SecondPractice.date,
+        },
+        fp3: {
+          time: nextRaceAPI.MRData.RaceTable.Races[0].ThirdPractice.time,
+          date: nextRaceAPI.MRData.RaceTable.Races[0].ThirdPractice.date,
+        },
+        qualifying: {
+          time: nextRaceAPI.MRData.RaceTable.Races[0].Qualifying.time,
+          date: nextRaceAPI.MRData.RaceTable.Races[0].Qualifying.date,
+        },
+        race: {
+          time: nextRaceAPI.MRData.RaceTable.Races[0].time,
+          date: nextRaceAPI.MRData.RaceTable.Races[0].date,
+        },
       },
-      fp2: {
-        time: nextRaceAPI.MRData.RaceTable.Races[0].SecondPractice.time,
-        date: nextRaceAPI.MRData.RaceTable.Races[0].SecondPractice.date,
-      },
-      fp3: {
-        time: nextRaceAPI.MRData.RaceTable.Races[0].ThirdPractice.time,
-        date: nextRaceAPI.MRData.RaceTable.Races[0].ThirdPractice.date,
-      },
-      qualifying: {
-        time: nextRaceAPI.MRData.RaceTable.Races[0].Qualifying.time,
-        date: nextRaceAPI.MRData.RaceTable.Races[0].Qualifying.date,
-      },
-      race: {
-        time: nextRaceAPI.MRData.RaceTable.Races[0].time,
-        date: nextRaceAPI.MRData.RaceTable.Races[0].date,
-      },
-    },
-  };
+    };
+  }
 
   return {
     props: {

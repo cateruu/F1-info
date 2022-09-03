@@ -18,6 +18,11 @@ a {
   box-sizing: border-box;
 }
 
+main {
+  width: 100%;
+  min-height: 100vh;
+}
+
 :root {
   --bg-main: #181818;
   --bg-panel: #272727;

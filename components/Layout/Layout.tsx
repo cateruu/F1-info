@@ -1,3 +1,5 @@
+import styles from './Layout.module.css';
+
 import Navbar from './Navbar/Navbar';
 
 type Props = {
@@ -6,10 +8,10 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <>
+    <div className={styles.layout}>
       <Navbar />
       {children}
-    </>
+    </div>
   );
 };
 

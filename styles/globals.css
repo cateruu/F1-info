@@ -23,4 +23,6 @@ a {
   --bg-panel: #272727;
   --border: #3c3c3c;
   --font: #fff;
+  --font-secondary: #878787;
+  --font-hover: #9bc8f1;
 }

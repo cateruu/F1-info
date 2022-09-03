@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.headerText {
+  font-size: 1.8rem;
+  font-family: 'Viga', sans-serif;
+  color: var(--font);
+  margin: 0;
+  padding: 0 20px;
+}

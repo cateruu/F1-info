@@ -1,8 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
-import { getLocalTime, getMonth } from '../../../utils/getDate';
+import { getMonth } from '../../../utils/getMonth';
+import { getLocalTime } from '../../../utils/getLocalTime';
 import { NextRaceType } from '../../../utils/types';
 import styles from './NextRace.module.css';
 
@@ -10,27 +9,7 @@ type Props = {
   data: NextRaceType;
 };
 
-type TrackImg = {
-  name: string;
-  image: string | undefined;
-};
-
 const NextRace = ({ data }: Props) => {
-  const [trackImg, setTrackImg] = useState<TrackImg>();
-
-  useEffect(() => {
-    const fetchTrack = async () => {
-      const req = await fetch('/api/tracks');
-      const res = await req.json();
-
-      if (data.track in res) {
-        setTrackImg(res[data.track]);
-      }
-    };
-
-    fetchTrack().catch((err) => console.error(err));
-  }, [data]);
-
   return (
     <section className={styles.section}>
       <header className={styles.header}>
@@ -134,7 +113,7 @@ const NextRace = ({ data }: Props) => {
             <div className={styles.imageContainer}>
               <Image
                 src={`/tracks/${data.track}.png`}
-                alt={trackImg?.name}
+                alt={data.track}
                 layout='fill'
                 className={styles.image}
               />

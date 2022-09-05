@@ -9,8 +9,13 @@ type Props = {
   data: NextRaceType;
 };
 
+type TrackImg = {
+  name: string;
+  image: string | undefined;
+};
+
 const NextRace = ({ data }: Props) => {
-  const [trackImg, setTrackImg] = useState<string>('');
+  const [trackImg, setTrackImg] = useState<TrackImg>();
 
   useEffect(() => {
     const fetchTrack = async () => {
@@ -122,7 +127,14 @@ const NextRace = ({ data }: Props) => {
           <h2>{`${data.track.slice(0, 1).toUpperCase()}${data.track.slice(
             1
           )}`}</h2>
-          <div className={styles.trackContainer}></div>
+          <div className={styles.trackContainer}>
+            <Image
+              src={trackImg?.image!}
+              alt={trackImg?.name}
+              width={30}
+              height={30}
+            />
+          </div>
         </div>
       </div>
     </section>

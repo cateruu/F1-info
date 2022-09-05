@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { getLocalTime, getMonth } from '../../../utils/getDate';
 import { NextRaceType } from '../../../utils/types';
@@ -10,16 +10,22 @@ type Props = {
 };
 
 const NextRace = ({ data }: Props) => {
+  const [trackImg, setTrackImg] = useState<string>('');
+
   useEffect(() => {
     const fetchTrack = async () => {
       const req = await fetch('/api/tracks');
       const res = await req.json();
 
-      console.log(res);
+      if (data.track in res) {
+        setTrackImg(res[data.track]);
+      }
     };
 
-    fetchTrack();
-  }, []);
+    fetchTrack().catch((err) => console.error(err));
+  }, [data]);
+
+  console.log(trackImg);
 
   return (
     <section className={styles.section}>

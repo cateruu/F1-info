@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import { getLocalTime, getMonth } from '../../../utils/getDate';
@@ -29,8 +30,6 @@ const NextRace = ({ data }: Props) => {
 
     fetchTrack().catch((err) => console.error(err));
   }, [data]);
-
-  console.log(trackImg);
 
   return (
     <section className={styles.section}>
@@ -127,14 +126,20 @@ const NextRace = ({ data }: Props) => {
           <h2>{`${data.track.slice(0, 1).toUpperCase()}${data.track.slice(
             1
           )}`}</h2>
-          <div className={styles.trackContainer}>
-            <Image
-              src={trackImg?.image!}
-              alt={trackImg?.name}
-              width={30}
-              height={30}
-            />
-          </div>
+          <a
+            href={`/tracks/${data.track}.png`}
+            target='_blank'
+            rel='noreferrer'
+          >
+            <div className={styles.imageContainer}>
+              <Image
+                src={`/tracks/${data.track}.png`}
+                alt={trackImg?.name}
+                layout='fill'
+                className={styles.image}
+              />
+            </div>
+          </a>
         </div>
       </div>
     </section>

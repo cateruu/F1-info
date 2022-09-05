@@ -115,3 +115,22 @@
 .track p {
   color: var(--font-secondary);
 }
+
+.imageContainer {
+  position: relative;
+  padding: 20px 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.imageContainer > span {
+  position: unset !important;
+}
+
+.image {
+  border-radius: 10px;
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}

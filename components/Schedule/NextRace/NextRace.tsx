@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { useEffect } from 'react';
+
 import { getLocalTime, getMonth } from '../../../utils/getDate';
 import { NextRaceType } from '../../../utils/types';
 import styles from './NextRace.module.css';
@@ -8,6 +10,17 @@ type Props = {
 };
 
 const NextRace = ({ data }: Props) => {
+  useEffect(() => {
+    const fetchTrack = async () => {
+      const req = await fetch('/api/tracks');
+      const res = await req.json();
+
+      console.log(res);
+    };
+
+    fetchTrack();
+  }, []);
+
   return (
     <section className={styles.section}>
       <header className={styles.header}>
@@ -103,6 +116,7 @@ const NextRace = ({ data }: Props) => {
           <h2>{`${data.track.slice(0, 1).toUpperCase()}${data.track.slice(
             1
           )}`}</h2>
+          <div className={styles.trackContainer}></div>
         </div>
       </div>
     </section>

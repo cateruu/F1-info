@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import { getRaceTime } from '../../../utils/getRaceTime';
 import { getTimeToRace } from '../../../utils/getTimeToRace';
 import styles from './Timer.module.css';
 
@@ -9,23 +8,17 @@ type Props = {
   date: string;
 };
 
-const Timer = ({ time, date }: Props) => {
-  const raceTime = getRaceTime(date, time);
-  const [timeToRace, setTimeToRace] = useState<string>();
+const Timer = ({ date, time }: Props) => {
+  const [timeToRace, setTimeToRace] = useState<string>('Calculating...');
 
   useEffect(() => {
-    const currentTime = Date.now();
-    const toRace = raceTime - currentTime;
-
-    if (toRace <= 0) {
-      setTimeToRace('00:00:00');
-      return;
-    }
-
-    const timer = setTimeout(() => setTimeToRace(getTimeToRace(toRace)), 1000);
+    const timer = setTimeout(
+      () => setTimeToRace(getTimeToRace(date, time)),
+      1000
+    );
 
     return () => clearTimeout(timer);
-  }, [timeToRace, raceTime]);
+  }, [date, time, timeToRace]);
 
   return (
     <section className={styles.timer}>

@@ -11,19 +11,6 @@ type Props = {
 };
 
 const NextRace = ({ data }: Props) => {
-  useEffect(() => {
-    const track = async () => {
-      const req = await fetch(
-        'https://ergast.com/api/f1/2022/22/circuits.json'
-      );
-      const res = await req.json();
-
-      console.log(res);
-    };
-
-    track();
-  }, []);
-
   return (
     <section className={styles.section}>
       <header className={styles.header}>

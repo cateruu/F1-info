@@ -37,7 +37,7 @@ export interface NextRaceAPI {
   };
 }
 
-export type NextRaceType = {
+export interface NextRaceType {
   name: string;
   country: string;
   track: string;
@@ -64,4 +64,4 @@ export type NextRaceType = {
       date: string;
     };
   };
-};
+}

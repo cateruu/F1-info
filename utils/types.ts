@@ -41,6 +41,7 @@ export type NextRaceType = {
   name: string;
   country: string;
   track: string;
+  trackId: string;
   sessions: {
     fp1: {
       time: string;

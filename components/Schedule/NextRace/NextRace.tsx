@@ -4,12 +4,26 @@ import { getMonth } from '../../../utils/getMonth';
 import { getLocalTime } from '../../../utils/getLocalTime';
 import { NextRaceType } from '../../../utils/types';
 import styles from './NextRace.module.css';
+import { useEffect } from 'react';
 
 type Props = {
   data: NextRaceType;
 };
 
 const NextRace = ({ data }: Props) => {
+  useEffect(() => {
+    const track = async () => {
+      const req = await fetch(
+        'https://ergast.com/api/f1/2022/22/circuits.json'
+      );
+      const res = await req.json();
+
+      console.log(res);
+    };
+
+    track();
+  }, []);
+
   return (
     <section className={styles.section}>
       <header className={styles.header}>
@@ -102,17 +116,15 @@ const NextRace = ({ data }: Props) => {
         </div>
         <div className={styles.track}>
           <p>Track</p>
-          <h2>{`${data.track.slice(0, 1).toUpperCase()}${data.track.slice(
-            1
-          )}`}</h2>
+          <h2>{`${data.track}`}</h2>
           <a
-            href={`/tracks/${data.track}.png`}
+            href={`/tracks/${data.trackId}.png`}
             target='_blank'
             rel='noreferrer'
           >
             <div className={styles.imageContainer}>
               <Image
-                src={`/tracks/${data.track}.png`}
+                src={`/tracks/${data.trackId}.png`}
                 alt={data.track}
                 layout='fill'
                 className={styles.image}

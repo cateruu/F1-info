@@ -39,7 +39,8 @@ export const getStaticProps: GetStaticProps = async () => {
     nextRaceData = {
       name: nextRaceAPI.MRData.RaceTable.Races[0].raceName,
       country: nextRaceAPI.MRData.RaceTable.Races[0].Circuit.Location.country,
-      track: nextRaceAPI.MRData.RaceTable.Races[0].Circuit.circuitId,
+      track: nextRaceAPI.MRData.RaceTable.Races[0].Circuit.circuitName,
+      trackId: nextRaceAPI.MRData.RaceTable.Races[0].Circuit.circuitId,
       sessions: {
         fp1: {
           time: nextRaceAPI.MRData.RaceTable.Races[0].FirstPractice.time,

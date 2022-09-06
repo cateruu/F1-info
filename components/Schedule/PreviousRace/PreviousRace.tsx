@@ -19,6 +19,28 @@ const PreviousRace = ({ data }: Props) => {
           className={styles.flag}
         />
       </header>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th className={styles.position}>Position</th>
+            <th>Driver</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.results.map((driver) => {
+            return (
+              <tr key={driver.Driver.familyName} className={styles.row}>
+                <td>{driver.position}</td>
+                <td>
+                  {driver.Driver.givenName} {driver.Driver.familyName}
+                </td>
+                <td>{driver.points}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </section>
   );
 };

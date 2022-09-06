@@ -4,6 +4,7 @@
   background-color: var(--bg-panel);
   overflow: hidden;
   transition: 0.1s;
+  position: relative;
 }
 
 .nav.open {

@@ -13,6 +13,7 @@ import {
   AiOutlineTable,
   AiOutlineHistory,
 } from 'react-icons/ai';
+import Footer from '../../Footer/Footer';
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -121,6 +122,7 @@ const Navbar = () => {
           </section>
         </Link>
       </div>
+      <Footer />
     </nav>
   );
 };

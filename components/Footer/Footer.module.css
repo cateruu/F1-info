@@ -1,0 +1,14 @@
+.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--border);
+  width: 100%;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.link {
+  color: var(--font-secondary);
+}

@@ -4,13 +4,35 @@ import { getMonth } from '../../../utils/getMonth';
 import { getLocalTime } from '../../../utils/getLocalTime';
 import { NextRaceType } from '../../../utils/types';
 import styles from './NextRace.module.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 type Props = {
   data: NextRaceType;
 };
 
+type TrackImg = {
+  name: string;
+  image: string | undefined;
+};
+
 const NextRace = ({ data }: Props) => {
+  const [trackImg, setTrackImg] = useState<TrackImg>();
+
+  useEffect(() => {
+    const fetchTrack = async () => {
+      const req = await fetch('/api/tracks');
+      const res = await req.json();
+
+      if (data.trackId in res) {
+        setTrackImg(res[data.trackId]);
+      }
+    };
+
+    fetchTrack().catch((err) => console.error(err));
+  }, [data]);
+
+  console.log(trackImg?.image);
+
   return (
     <section className={styles.section}>
       <header className={styles.header}>
@@ -104,14 +126,10 @@ const NextRace = ({ data }: Props) => {
         <div className={styles.track}>
           <p>Track</p>
           <h2>{`${data.track}`}</h2>
-          <a
-            href={`/tracks/${data.trackId}.png`}
-            target='_blank'
-            rel='noreferrer'
-          >
+          <a href={trackImg?.image} target='_blank' rel='noreferrer'>
             <div className={styles.imageContainer}>
               <Image
-                src={`/tracks/${data.trackId}.png`}
+                src={trackImg?.image!}
                 alt={data.track}
                 layout='fill'
                 className={styles.image}

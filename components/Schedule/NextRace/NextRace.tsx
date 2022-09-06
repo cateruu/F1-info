@@ -4,7 +4,6 @@ import { getMonth } from '../../../utils/getMonth';
 import { getLocalTime } from '../../../utils/getLocalTime';
 import styles from './NextRace.module.css';
 import { useEffect, useState } from 'react';
-import { NextRaceType } from '../../../utils/globals';
 
 type Props = {
   data: NextRaceType;

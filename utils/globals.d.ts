@@ -1,4 +1,4 @@
-export interface NextRaceAPI {
+interface NextRaceAPI {
   MRData: {
     RaceTable: {
       Races: {
@@ -37,7 +37,7 @@ export interface NextRaceAPI {
   };
 }
 
-export interface NextRaceType {
+interface NextRaceType {
   name: string;
   country: string;
   track: string;
@@ -66,7 +66,7 @@ export interface NextRaceType {
   };
 }
 
-export interface PrevRaceAPI {
+interface PrevRaceAPI {
   MRData: {
     RaceTable: {
       Races: {
@@ -82,7 +82,7 @@ export interface PrevRaceAPI {
   };
 }
 
-export interface PrevRaceType {
+interface PrevRaceType {
   country: string;
   name: string;
   results: {

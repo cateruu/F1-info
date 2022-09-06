@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { PrevRaceType } from '../../../utils/globals';
+
 import styles from './PreviousRace.module.css';
 
 type Props = {

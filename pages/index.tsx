@@ -12,7 +12,6 @@ import {
 } from '../utils/globals';
 import Timer from '../components/Schedule/Timer/Timer';
 import PreviousRace from '../components/Schedule/PreviousRace/PreviousRace';
-import Footer from '../components/Footer/Footer';
 
 type Props = {
   nextRaceData: NextRaceType;

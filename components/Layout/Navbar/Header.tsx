@@ -11,7 +11,9 @@ const Header = ({ openNavHandler, navOpen }: Props) => {
   return (
     <header className={styles.header}>
       <Hamburger openNavHandler={openNavHandler} navOpen={navOpen} />
-      <p className={styles.headerText}>F1 Info</p>
+      <p className={`${styles.headerText} ${navOpen && styles.open}`}>
+        F1 Info
+      </p>
     </header>
   );
 };

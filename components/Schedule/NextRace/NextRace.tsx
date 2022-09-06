@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 import { getMonth } from '../../../utils/getMonth';
 import { getLocalTime } from '../../../utils/getLocalTime';
-import { NextRaceType } from '../../../utils/types';
 import styles from './NextRace.module.css';
 import { useEffect, useState } from 'react';
+import { NextRaceType } from '../../../utils/globals';
 
 type Props = {
   data: NextRaceType;
@@ -12,7 +12,7 @@ type Props = {
 
 type TrackImg = {
   name: string;
-  image: string | undefined;
+  image: string;
 };
 
 const NextRace = ({ data }: Props) => {
@@ -30,8 +30,6 @@ const NextRace = ({ data }: Props) => {
 
     fetchTrack().catch((err) => console.error(err));
   }, [data]);
-
-  console.log(trackImg?.image);
 
   return (
     <section className={styles.section}>
@@ -128,12 +126,14 @@ const NextRace = ({ data }: Props) => {
           <h2>{`${data.track}`}</h2>
           <a href={trackImg?.image} target='_blank' rel='noreferrer'>
             <div className={styles.imageContainer}>
-              <Image
-                src={trackImg?.image!}
-                alt={data.track}
-                layout='fill'
-                className={styles.image}
-              />
+              {trackImg?.image && (
+                <Image
+                  src={trackImg.image}
+                  alt={data.track}
+                  layout='fill'
+                  className={styles.image}
+                />
+              )}
             </div>
           </a>
         </div>

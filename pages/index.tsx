@@ -4,14 +4,21 @@ import { GetStaticProps } from 'next';
 import styles from '../styles/Home.module.css';
 
 import NextRace from '../components/Schedule/NextRace/NextRace';
-import { NextRaceType, NextRaceAPI } from '../utils/types';
+import {
+  NextRaceType,
+  NextRaceAPI,
+  PrevRaceAPI,
+  PrevRaceType,
+} from '../utils/globals';
 import Timer from '../components/Schedule/Timer/Timer';
+import PreviousRace from '../components/Schedule/PreviousRace/PreviousRace';
 
 type Props = {
   nextRaceData: NextRaceType;
+  prevRaceData: PrevRaceType;
 };
 
-const Home = ({ nextRaceData }: Props) => {
+const Home = ({ nextRaceData, prevRaceData }: Props) => {
   return (
     <main className={styles.home}>
       <Head>
@@ -24,6 +31,7 @@ const Home = ({ nextRaceData }: Props) => {
         time={nextRaceData.sessions.race.time}
         date={nextRaceData.sessions.race.date}
       />
+      <PreviousRace data={prevRaceData} />
     </main>
   );
 };
@@ -66,9 +74,24 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   }
 
+  const prevRaceReq = await fetch(
+    'https://ergast.com/api/f1/current/last/results.json'
+  );
+
+  let prevRaceData;
+  if (prevRaceReq.ok) {
+    const prevRaceAPI: PrevRaceAPI = await prevRaceReq.json();
+    prevRaceData = {
+      name: prevRaceAPI.MRData.RaceTable.Races[0].raceName,
+      country: prevRaceAPI.MRData.RaceTable.Races[0].Circuit.Location.country,
+      results: prevRaceAPI.MRData.RaceTable.Races[0].Results,
+    };
+  }
+
   return {
     props: {
       nextRaceData,
+      prevRaceData,
     },
   };
 };

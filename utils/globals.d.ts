@@ -65,3 +65,33 @@ export interface NextRaceType {
     };
   };
 }
+
+export interface PrevRaceAPI {
+  MRData: {
+    RaceTable: {
+      Races: {
+        Circuit: {
+          Location: {
+            country: string;
+          };
+        };
+        Results: {}[];
+        raceName: string;
+      }[];
+    };
+  };
+}
+
+export interface PrevRaceType {
+  country: string;
+  name: string;
+  results: {
+    number: string;
+    position: string;
+    points: string;
+    Driver: {
+      givenName: string;
+      familyName: string;
+    };
+  }[];
+}

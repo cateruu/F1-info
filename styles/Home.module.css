@@ -1,9 +1,5 @@
 .home {
   display: flex;
-  padding: 50px;
-  display: grid;
-  grid-template: 300px 1fr / 500px 1fr 1fr;
-  column-gap: 100px;
-  row-gap: 20px;
-  grid-template-areas: 'next timer timer' 'previous drivers constructors';
+  flex-direction: column;
+  align-items: center;
 }

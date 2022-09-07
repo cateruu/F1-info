@@ -9,7 +9,7 @@ type Props = {
 };
 
 const Timer = ({ date, time }: Props) => {
-  const [timeToRace, setTimeToRace] = useState<string>('Calculating...');
+  const [timeToRace, setTimeToRace] = useState<string>('');
 
   useEffect(() => {
     const timer = setTimeout(
@@ -20,12 +20,7 @@ const Timer = ({ date, time }: Props) => {
     return () => clearTimeout(timer);
   }, [date, time, timeToRace]);
 
-  return (
-    <section className={styles.timer}>
-      <h3 className={styles.header}>Until Next Race</h3>
-      <time className={styles.time}>{timeToRace}</time>
-    </section>
-  );
+  return <time className={styles.timer}>{timeToRace}</time>;
 };
 
 export default Timer;

@@ -24,10 +24,6 @@ const Home = ({ nextRaceData, prevRaceData }: Props) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <NextRace data={nextRaceData} />
-      <Timer
-        time={nextRaceData.sessions.race.time}
-        date={nextRaceData.sessions.race.date}
-      />
     </main>
   );
 };

@@ -93,6 +93,9 @@ interface PrevRaceType {
       givenName: string;
       familyName: string;
     };
+    Constructor: {
+      constructorId: string;
+    };
   }[];
 }
 
@@ -103,5 +106,8 @@ interface ResultType {
   Driver: {
     givenName: string;
     familyName: string;
+  };
+  Constructor: {
+    constructorId: string;
   };
 }

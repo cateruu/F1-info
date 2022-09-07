@@ -4,7 +4,6 @@ import { GetStaticProps } from 'next';
 import styles from '../styles/Home.module.css';
 
 import NextRace from '../components/Schedule/NextRace/NextRace';
-import Timer from '../components/Schedule/Timer/Timer';
 import PreviousRace from '../components/Schedule/PreviousRace/PreviousRace';
 
 type Props = {

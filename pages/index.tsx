@@ -24,6 +24,7 @@ const Home = ({ nextRaceData, prevRaceData }: Props) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <NextRace data={nextRaceData} />
+      <PreviousRace data={prevRaceData} />
     </main>
   );
 };
@@ -66,7 +67,7 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 
   const prevRaceReq = await fetch(
-    'https://ergast.com/api/f1/current/last/results.json'
+    'http://ergast.com/api/f1/current/last/results.json?limit=10'
   );
   let prevRaceData;
   if (prevRaceReq.ok) {

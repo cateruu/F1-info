@@ -1,0 +1,28 @@
+.result {
+  width: 100%;
+  padding: 10px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 5px;
+  display: flex;
+}
+
+.position {
+  width: 50px;
+  margin: 0;
+  text-align: center;
+  border-right: 1px solid var(--border-blue);
+}
+
+.driver {
+  margin: 0;
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+.points {
+  margin: 0;
+  width: 50px;
+  text-align: center;
+  border-left: 1px solid var(--border-blue);
+}

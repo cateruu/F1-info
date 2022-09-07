@@ -95,3 +95,13 @@ interface PrevRaceType {
     };
   }[];
 }
+
+interface ResultType {
+  number: string;
+  position: string;
+  points: string;
+  Driver: {
+    givenName: string;
+    familyName: string;
+  };
+}

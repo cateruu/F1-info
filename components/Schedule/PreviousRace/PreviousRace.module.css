@@ -1,46 +1,41 @@
 .prev {
-  grid-area: previous;
+  margin-top: 50px;
   width: 100%;
-  height: 100%;
-  background-color: var(--bg-panel);
-  border-radius: 5px;
+  color: var(--font);
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
-  width: 100%;
-  height: 50px;
-  background-color: #3975eb;
-  border-radius: 5px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
+  font-size: 2.6rem;
+  font-weight: 500;
+}
+
+.gp {
+  font-size: 1.2rem;
+  color: var(--font-gp);
+  margin: 5px 0 20px 0;
+}
+
+.flag {
+  margin-left: 10px;
+}
+
+.flag span {
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.results {
+  width: 100px;
+  align-self: center;
+  margin: 10px 0;
+  background-color: var(--font-nav);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 7px 10px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
   color: var(--font);
-  font-size: 1.3rem;
-}
-
-.name {
-  margin-right: auto;
-}
-
-.table {
-  width: 100%;
-  color: var(--font);
-  padding: 10px 20px;
-}
-
-.table td:nth-of-type(2) {
-  border-bottom: 1px solid var(--border);
-}
-
-.table tr:last-of-type td:nth-of-type(2) {
-  border-bottom: none;
-}
-
-.position {
-  width: min-content;
-}
-
-.row td:nth-of-type(1),
-.row td:nth-of-type(3) {
-  text-align: center;
 }

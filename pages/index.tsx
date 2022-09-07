@@ -28,7 +28,6 @@ const Home = ({ nextRaceData, prevRaceData }: Props) => {
         time={nextRaceData.sessions.race.time}
         date={nextRaceData.sessions.race.date}
       />
-      <PreviousRace data={prevRaceData} />
     </main>
   );
 };

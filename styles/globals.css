@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Viga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #181818;
+  background-color: var(--bg-main);
 }
 
 a {
@@ -24,11 +24,10 @@ main {
 }
 
 :root {
-  --bg-main: #181818;
+  --bg-main: #020e18;
   --bg-panel: #272727;
-  --bg-timer: #e53d51;
   --border: #3c3c3c;
   --font: #fff;
   --font-secondary: #878787;
-  --font-hover: #9bc8f1;
+  --font-nav: #ee0000;
 }

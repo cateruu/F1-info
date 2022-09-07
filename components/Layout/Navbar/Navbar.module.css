@@ -1,71 +1,14 @@
 .nav {
-  min-height: 100vh;
-  width: 100px;
-  background-color: var(--bg-panel);
-  overflow: hidden;
-  transition: 0.1s;
-  position: relative;
-}
-
-.nav.open {
-  width: 300px;
-  overflow: visible;
-}
-
-.container {
-  width: 300px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-  position: fixed;
-}
-
-.section {
   width: 100%;
+  height: 80px;
   display: flex;
-  align-items: center;
-  color: var(--font);
-  cursor: pointer;
-  transition: 0.1s;
-}
-
-.section:hover,
-.section:hover .sectionText {
-  color: var(--font-hover);
-}
-
-.compact {
-  margin: 20px 35px;
-  width: 30px;
-  font-size: 1.5rem;
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.compact.iconOpen {
-  font-size: 2rem;
-}
-
-.compactText {
-  font-size: 0.8rem;
-  margin: 0;
-  margin-top: 5px;
-}
-
-.compactText.openCompact {
-  display: none;
-}
-
-.sectionText {
-  font-size: 1.4rem;
-  color: var(--font);
-  margin: 0;
-  padding: 0 20px;
-  display: none;
-}
-
-.nav.open .sectionText {
-  display: block;
+.links {
+  display: flex;
+  margin-left: 100px;
+  color: var(--font-nav);
+  font-weight: 500;
 }

@@ -1,3 +1,4 @@
+import Footer from './Footer/Footer';
 import styles from './Layout.module.css';
 
 import Navbar from './Navbar/Navbar';
@@ -11,6 +12,7 @@ const Layout = ({ children }: Props) => {
     <div className={styles.layout}>
       <Navbar />
       {children}
+      <Footer />
     </div>
   );
 };

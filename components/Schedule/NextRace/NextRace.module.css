@@ -3,6 +3,7 @@
   width: 100%;
   color: var(--font);
   display: flex;
+  justify-content: space-between;
 }
 
 .info {

@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import { getMonth } from '../../../utils/getMonth';
 import { getLocalTime } from '../../../utils/getLocalTime';
 import styles from './NextRace.module.css';
 import { useEffect, useState } from 'react';
@@ -59,8 +58,28 @@ const NextRace = ({ data }: Props) => {
           date={data.sessions.race.date}
           time={data.sessions.race.time}
         />
+        <Session
+          name='Qualifying'
+          date={data.sessions.qualifying.date}
+          time={data.sessions.qualifying.time}
+        />
+        <Session
+          name='Practice 3'
+          date={data.sessions.fp3.date}
+          time={data.sessions.fp3.time}
+        />
+        <Session
+          name='Practice 2'
+          date={data.sessions.fp2.date}
+          time={data.sessions.fp2.time}
+        />
+        <Session
+          name='Practice 1'
+          date={data.sessions.fp1.date}
+          time={data.sessions.fp1.time}
+        />
       </section>
-      <section>
+      <section className={styles.trackInfo}>
         {trackImg && (
           <a
             href={trackImg.image}

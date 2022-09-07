@@ -1,0 +1,40 @@
+.session {
+  display: flex;
+  margin: 10px 0;
+}
+
+.date {
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid var(--border-blue);
+}
+
+.day {
+  margin: 0;
+  margin-bottom: -10px;
+  font-size: 1.5rem;
+}
+
+.month {
+  margin: 0;
+  color: var(--font-secondary);
+  font-weight: 0.9rem;
+}
+
+.container {
+  padding: 0 10px;
+}
+
+.name {
+  margin: 0;
+  margin-bottom: -10px;
+  font-size: 1.5rem;
+}
+
+.time {
+  color: var(--font-secondary);
+  font-size: 0.9rem;
+}

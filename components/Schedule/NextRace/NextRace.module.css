@@ -35,10 +35,15 @@
   color: var(--font-secondary);
 }
 
+.trackInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .trackContainer {
   position: relative;
   width: 100%;
-  margin: auto 0;
 }
 
 .trackContainer > span {

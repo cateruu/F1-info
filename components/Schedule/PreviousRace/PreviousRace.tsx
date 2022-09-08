@@ -5,7 +5,7 @@ import styles from './PreviousRace.module.css';
 import Result from './Result';
 
 type Props = {
-  data: PrevRaceType;
+  data: ResultDataType;
 };
 
 const PreviousRace = ({ data }: Props) => {

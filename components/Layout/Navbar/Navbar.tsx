@@ -22,6 +22,9 @@ const Navbar = () => {
         <Link href='/standings'>
           <ul>Standings</ul>
         </Link>
+        <Link href='/schedule'>
+          <ul>Schedule</ul>
+        </Link>
         <Link href='/drivers'>
           <ul>Drivers</ul>
         </Link>

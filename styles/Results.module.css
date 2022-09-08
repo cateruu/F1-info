@@ -1,0 +1,25 @@
+.results {
+  width: 100%;
+  color: var(--font);
+  margin-top: 50px;
+}
+
+.header {
+  font-size: 2.6rem;
+  font-weight: 500;
+}
+
+.gp {
+  font-size: 1.2rem;
+  color: var(--font-gp);
+  margin: 5px 0 20px 0;
+}
+
+.flag {
+  margin-left: 10px;
+}
+
+.flag span {
+  border-radius: 3px;
+  overflow: hidden;
+}

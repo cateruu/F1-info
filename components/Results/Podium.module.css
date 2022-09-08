@@ -1,0 +1,5 @@
+.podium {
+  width: 100%;
+  display: grid;
+  grid-template-areas: 'second first third';
+}

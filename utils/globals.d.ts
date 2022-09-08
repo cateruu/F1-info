@@ -66,7 +66,7 @@ interface NextRaceType {
   };
 }
 
-interface PrevRaceAPI {
+interface ResultAPI {
   MRData: {
     RaceTable: {
       Races: {
@@ -82,7 +82,7 @@ interface PrevRaceAPI {
   };
 }
 
-interface PrevRaceType {
+interface ResultDataType {
   country: string;
   name: string;
   results: {
@@ -92,9 +92,13 @@ interface PrevRaceType {
     Driver: {
       givenName: string;
       familyName: string;
+      driverId: string;
     };
     Constructor: {
       constructorId: string;
+    };
+    FastestLap: {
+      rank: string;
     };
   }[];
 }
@@ -106,8 +110,12 @@ interface ResultType {
   Driver: {
     givenName: string;
     familyName: string;
+    driverId: string;
   };
   Constructor: {
     constructorId: string;
+  };
+  FastestLap: {
+    rank: string;
   };
 }

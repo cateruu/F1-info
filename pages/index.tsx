@@ -8,7 +8,7 @@ import PreviousRace from '../components/Schedule/PreviousRace/PreviousRace';
 
 type Props = {
   nextRaceData: NextRaceType;
-  prevRaceData: PrevRaceType;
+  prevRaceData: ResultDataType;
 };
 
 const Home = ({ nextRaceData, prevRaceData }: Props) => {
@@ -70,7 +70,7 @@ export const getStaticProps: GetStaticProps = async () => {
   );
   let prevRaceData;
   if (prevRaceReq.ok) {
-    const prevRaceAPI: PrevRaceAPI = await prevRaceReq.json();
+    const prevRaceAPI: ResultAPI = await prevRaceReq.json();
     prevRaceData = {
       name: prevRaceAPI.MRData.RaceTable.Races[0].raceName,
       country: prevRaceAPI.MRData.RaceTable.Races[0].Circuit.Location.country,

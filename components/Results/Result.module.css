@@ -48,3 +48,7 @@
   position: relative !important;
   height: unset !important;
 }
+
+.fastest {
+  color: var(--fastest);
+}

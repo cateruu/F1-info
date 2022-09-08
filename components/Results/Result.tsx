@@ -43,7 +43,13 @@ const Result = ({ result }: Props) => {
           />
         </div>
       )}
-      <p className={styles.points}>{result.points}</p>
+      <p
+        className={`${styles.points} ${
+          result.FastestLap.rank === '1' && styles.fastest
+        }`}
+      >
+        {result.points}
+      </p>
     </div>
   );
 };

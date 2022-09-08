@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from './PreviousRace.module.css';
-import Result from './Result';
+import Result from '../../Results/Result';
 
 type Props = {
   data: ResultDataType;

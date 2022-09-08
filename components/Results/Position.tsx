@@ -57,14 +57,27 @@ const Position = ({ data }: Props) => {
 
   return (
     <div className={styles.place} style={style}>
-      {driverImg && (
-        <Image
-          src={driverImg?.image}
-          alt={data.Driver.driverId}
-          width={206}
-          height={206}
-        />
-      )}
+      <div className={styles.images}>
+        {driverImg && (
+          <Image
+            src={driverImg?.image}
+            alt={data.Driver.driverId}
+            width={206}
+            height={206}
+            style={{ zIndex: '10' }}
+          />
+        )}
+        {constructorImg && (
+          <div className={styles.constructorImgContainer}>
+            <Image
+              src={constructorImg?.image}
+              alt={data.Driver.driverId}
+              layout='fill'
+              className={styles.constructorImg}
+            />
+          </div>
+        )}
+      </div>
       <div className={styles.info}>
         <h2 className={styles.position}>{data.position}</h2>
         <p className={styles.name}>

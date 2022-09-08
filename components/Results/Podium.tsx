@@ -7,7 +7,6 @@ type Props = {
 };
 
 const Podium = ({ data }: Props) => {
-  console.log(data);
   return (
     <section className={styles.podium}>
       <Position data={data.results[1]} />

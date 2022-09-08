@@ -2,6 +2,7 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Podium from '../components/Results/Podium';
+import Result from '../components/Results/Result';
 
 import styles from '../styles/Results.module.css';
 
@@ -33,6 +34,18 @@ const ResultsPage = ({ resultsData }: Props) => {
         </span>
       </p>
       <Podium data={resultsData} />
+      <div className={styles.rest}>
+        {resultsData.results.map((result) => {
+          if (
+            result.position === '1' ||
+            result.position === '2' ||
+            result.position === '3'
+          )
+            return;
+
+          return <Result key={result.Driver.driverId} result={result} />;
+        })}
+      </div>
     </main>
   );
 };

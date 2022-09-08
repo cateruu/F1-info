@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from './Position.module.css';
 
@@ -37,7 +38,47 @@ const Position = ({ data }: Props) => {
     fetchConstructor().catch((err) => console.error(err));
   }, [data]);
 
-  return <div className={styles.position}></div>;
+  let style;
+  if (data.position === '1') {
+    style = {
+      color: '#E3F380',
+    };
+  } else if (data.position === '2') {
+    style = {
+      color: '#C0C0C0',
+      marginTop: '25px',
+    };
+  } else if (data.position === '3') {
+    style = {
+      color: '#674739',
+      marginTop: '50px',
+    };
+  }
+
+  return (
+    <div className={styles.place} style={style}>
+      {driverImg && (
+        <Image
+          src={driverImg?.image}
+          alt={data.Driver.driverId}
+          width={206}
+          height={206}
+        />
+      )}
+      <div className={styles.info}>
+        <h2 className={styles.position}>{data.position}</h2>
+        <p className={styles.name}>
+          {data.Driver.givenName} {data.Driver.familyName}
+        </p>
+        <div className={styles.points}>
+          <span>Points:</span>
+          <span className={`${data.FastestLap.rank === '1' && styles.fastest}`}>
+            {data.points}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Position;

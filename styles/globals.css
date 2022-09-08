@@ -20,16 +20,16 @@ a {
 
 main {
   width: 100%;
-  min-height: 100vh;
 }
 
 :root {
   --bg-main: #020e18;
-  --bg-panel: #272727;
+  --bg-panel: #031c31;
   --border: #434343;
   --border-blue: #0a3961;
   --font: #fff;
   --font-secondary: #878787;
   --font-nav: #ee0000;
   --font-gp: #e3f380;
+  --fastest: #ff00ff;
 }

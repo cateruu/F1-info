@@ -1,11 +1,20 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
+import Driver from '../components/Standings/Driver';
 
 import styles from '../styles/Standings.module.css';
 
-const StandingsPage = () => {
+type Props = {
+  driversData: {
+    result: DriverType[];
+  };
+};
+
+const StandingsPage = ({ driversData }: Props) => {
   const [category, setCategory] = useState<string>('drivers');
+
+  console.log(driversData);
 
   const categoryChangeHandler = (category: string) => {
     setCategory(category);
@@ -40,13 +49,32 @@ const StandingsPage = () => {
           Constructors
         </button>
       </div>
+      {category === 'drivers' &&
+        driversData.result.map((data) => (
+          <Driver key={data.Driver.driverId} data={data} />
+        ))}
     </main>
   );
 };
 
-export const getStaticProps: GetStaticProps = () => {
+export const getStaticProps: GetStaticProps = async () => {
+  const driversReq = await fetch(
+    'https://ergast.com/api/f1/current/driverStandings.json'
+  );
+
+  let driversData;
+  if (driversReq.ok) {
+    const driversAPI: DriversStandingsAPI = await driversReq.json();
+    driversData = {
+      result:
+        driversAPI.MRData.StandingsTable.StandingsLists[0].DriverStandings,
+    };
+  }
+
   return {
-    props: {},
+    props: {
+      driversData,
+    },
   };
 };
 

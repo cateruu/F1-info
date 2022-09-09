@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
+import Constructor from '../components/Standings/Constructor';
 import Driver from '../components/Standings/Driver';
 
 import styles from '../styles/Standings.module.css';
@@ -9,12 +10,13 @@ type Props = {
   driversData: {
     result: DriverType[];
   };
+  constructorsData: {
+    result: ConstructorType[];
+  };
 };
 
-const StandingsPage = ({ driversData }: Props) => {
+const StandingsPage = ({ driversData, constructorsData }: Props) => {
   const [category, setCategory] = useState<string>('drivers');
-
-  console.log(driversData);
 
   const categoryChangeHandler = (category: string) => {
     setCategory(category);
@@ -53,6 +55,10 @@ const StandingsPage = ({ driversData }: Props) => {
         driversData.result.map((data) => (
           <Driver key={data.Driver.driverId} data={data} />
         ))}
+      {category === 'constructors' &&
+        constructorsData.result.map((data) => (
+          <Constructor key={data.Constructor.constructorId} data={data} />
+        ))}
     </main>
   );
 };
@@ -71,9 +77,24 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   }
 
+  const constructorsReq = await fetch(
+    'http://ergast.com/api/f1/current/constructorStandings.json'
+  );
+  let constructorsData;
+  if (constructorsReq.ok) {
+    const constructorsAPI: ConstructorsStandingsAPI =
+      await constructorsReq.json();
+    constructorsData = {
+      result:
+        constructorsAPI.MRData.StandingsTable.StandingsLists[0]
+          .ConstructorStandings,
+    };
+  }
+
   return {
     props: {
       driversData,
+      constructorsData,
     },
   };
 };

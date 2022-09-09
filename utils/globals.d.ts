@@ -127,7 +127,6 @@ interface DriversStandingsAPI {
         DriverStandings: {
           position: string;
           points: string;
-          wins: string;
           Driver: {
             familyName: string;
             givenName: string;
@@ -144,7 +143,6 @@ interface DriversStandingsAPI {
 interface DriverType {
   position: string;
   points: string;
-  wins: string;
   Constructors: {
     constructorId: string;
   }[];
@@ -152,5 +150,31 @@ interface DriverType {
     driverId: string;
     givenName: string;
     familyName: string;
+  };
+}
+
+interface ConstructorsStandingsAPI {
+  MRData: {
+    StandingsTable: {
+      StandingsLists: {
+        ConstructorStandings: {
+          position: string;
+          points: string;
+          Constructor: {
+            constructorId: string;
+            name: string;
+          }[];
+        }[];
+      }[];
+    };
+  };
+}
+
+interface ConstructorType {
+  position: string;
+  points: string;
+  Constructor: {
+    constructorId: string;
+    name: string;
   };
 }

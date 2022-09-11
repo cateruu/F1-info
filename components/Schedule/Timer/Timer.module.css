@@ -3,3 +3,7 @@
   color: var(--font-secondary);
   font-weight: 400;
 }
+
+.live {
+  color: var(--font-nav);
+}

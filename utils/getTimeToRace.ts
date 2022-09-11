@@ -20,7 +20,7 @@ export const getTimeToRace = (date: string, time: string) => {
     hours = `0${hours}`;
   }
 
-  if (+hours <= 0 && +minutes <= 0 && +seconds <= 0) return 'Live';
+  if (toRace <= 0) return 'Live';
 
   return `${hours}:${minutes}:${seconds}`;
 };

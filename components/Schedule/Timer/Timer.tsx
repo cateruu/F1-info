@@ -20,7 +20,11 @@ const Timer = ({ date, time }: Props) => {
     return () => clearTimeout(timer);
   }, [date, time, timeToRace]);
 
-  return <time className={styles.timer}>{timeToRace}</time>;
+  return (
+    <time className={`${styles.timer} ${timeToRace === 'Live' && styles.live}`}>
+      {timeToRace}
+    </time>
+  );
 };
 
 export default Timer;

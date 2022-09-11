@@ -7,13 +7,15 @@ const Navbar = () => {
   return (
     <nav className={styles.nav}>
       <Link href='/'>
-        <Image
-          src='/logo.png'
-          alt='logo'
-          width={80}
-          height={40}
-          style={{ cursor: 'pointer' }}
-        />
+        <div>
+          <Image
+            src='https://firebasestorage.googleapis.com/v0/b/f1-info-8b7b0.appspot.com/o/logo.png?alt=media&token=28dfec46-323c-4f0e-9821-d50a15cb03fa'
+            alt='logo'
+            width={80}
+            height={40}
+            style={{ cursor: 'pointer' }}
+          />
+        </div>
       </Link>
       <li className={styles.links}>
         <Link href='/results'>

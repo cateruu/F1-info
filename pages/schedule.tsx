@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import CurrentRace from '../components/Schedule/CurrentRace/CurrentRace';
 import Race from '../components/Schedule/Race/Race';
 import styles from '../styles/Schedule.module.css';
 
@@ -26,7 +27,11 @@ const SchedulePage = ({ scheduleData, nextRaceData }: Props) => {
       <header className={styles.header}>Schedule</header>
       <article className={styles.races}>
         {scheduleData.result.map((race) =>
-          race.round === nextRaceData.round ? null : <Race data={race} />
+          race.round === nextRaceData.round ? (
+            <CurrentRace data={race} />
+          ) : (
+            <Race data={race} />
+          )
         )}
       </article>
     </main>

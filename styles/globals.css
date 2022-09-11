@@ -25,6 +25,7 @@ main {
 :root {
   --bg-main: #020e18;
   --bg-panel: #031c31;
+  --bg-current: #0c4c82;
   --border: #434343;
   --border-blue: #0a3961;
   --font: #fff;

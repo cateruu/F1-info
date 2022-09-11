@@ -13,6 +13,7 @@ type Constructor = {
 
 const Result = ({ result }: Props) => {
   const [constructorImg, setConstructorImg] = useState<Constructor>();
+  console.log(result);
 
   useEffect(() => {
     const fetchConstructor = async () => {

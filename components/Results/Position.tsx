@@ -85,7 +85,9 @@ const Position = ({ data }: Props) => {
         </p>
         <div className={styles.points}>
           <span>Points:</span>
-          <span className={`${data.FastestLap.rank === '1' && styles.fastest}`}>
+          <span
+            className={`${data.FastestLap?.rank === '1' && styles.fastest}`}
+          >
             {data.points}
           </span>
         </div>

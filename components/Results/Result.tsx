@@ -45,7 +45,7 @@ const Result = ({ result }: Props) => {
       )}
       <p
         className={`${styles.points} ${
-          result.FastestLap.rank === '1' && styles.fastest
+          result.FastestLap?.rank === '1' && styles.fastest
         }`}
       >
         {result.points}

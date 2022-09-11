@@ -65,6 +65,7 @@ export const getStaticProps: GetStaticProps = async () => {
       scheduleData,
       nextRaceData,
     },
+    revalidate: 60,
   };
 };
 

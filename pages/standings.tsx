@@ -96,6 +96,7 @@ export const getStaticProps: GetStaticProps = async () => {
       driversData,
       constructorsData,
     },
+    revalidate: 60,
   };
 };
 

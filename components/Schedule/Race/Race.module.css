@@ -1,0 +1,31 @@
+.race {
+  width: 250px;
+  height: 250px;
+  background-color: var(--bg-panel);
+  margin: 5px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+
+.flag {
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.name {
+  text-align: center;
+}
+
+.track {
+  margin: 0;
+  color: var(--font-secondary);
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.date {
+  margin-top: auto;
+}

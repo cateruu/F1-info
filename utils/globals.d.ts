@@ -178,3 +178,43 @@ interface ConstructorType {
     name: string;
   };
 }
+
+interface ScheduleAPI {
+  MRData: {
+    RaceTable: {
+      Races: {}[];
+      season: string;
+    };
+  };
+}
+
+interface ScheduleData {
+  Circuit: {
+    Location: {
+      country: string;
+    };
+    circuitId: string;
+    circuitName: string;
+  };
+  FirstPractice: {
+    date: string;
+    time: string;
+  };
+  SecondPractice: {
+    date: string;
+    time: string;
+  };
+  ThirdPractice: {
+    date: string;
+    time: string;
+  };
+  Qualifying: {
+    date: string;
+    time: string;
+  };
+  date: string;
+  raceName: string;
+  round: string;
+  season: string;
+  time: string;
+}

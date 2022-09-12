@@ -53,6 +53,7 @@ const Driver = ({ data }: Props) => {
         <p className={styles.name}>
           {data.givenName} {data.familyName}
         </p>
+        <p className={styles.date}>{data.dateOfBirth}</p>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import Constructor from '../components/Constructors/Constructor';
 
 import styles from '../styles/Constructors.module.css';
 
@@ -21,6 +22,11 @@ const ConstructorsPage = ({ constructorsData }: Props) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <header className={styles.header}>Constructors</header>
+      <section className={styles.constructors}>
+        {constructorsData.result.map((constructor) => (
+          <Constructor key={constructor.constructorId} data={constructor} />
+        ))}
+      </section>
     </main>
   );
 };

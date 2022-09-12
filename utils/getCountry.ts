@@ -28,6 +28,14 @@ export const getCountry = (nationality: string) => {
       return 'japan';
     case 'Chinese':
       return 'China';
+    case 'Swiss':
+      return 'switzerland';
+    case 'Italian':
+      return 'italy';
+    case 'American':
+      return 'usa';
+    case 'Austrian':
+      return 'austria';
     default:
       return 'antarctica';
   }

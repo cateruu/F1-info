@@ -28,9 +28,9 @@ const SchedulePage = ({ scheduleData, nextRaceData }: Props) => {
       <article className={styles.races}>
         {scheduleData.result.map((race) =>
           race.round === nextRaceData.round ? (
-            <CurrentRace data={race} />
+            <CurrentRace key={race.round} data={race} />
           ) : (
-            <Race data={race} />
+            <Race key={race.round} data={race} />
           )
         )}
       </article>

@@ -218,3 +218,19 @@ interface ScheduleData {
   season: string;
   time: string;
 }
+
+interface DriversAPI {
+  MRData: {
+    DriverTable: {
+      Drivers: {}[];
+    };
+  };
+}
+
+interface DriverData {
+  dateOfBirth: string;
+  driverId: string;
+  familyName: string;
+  givenName: string;
+  nationality: string;
+}

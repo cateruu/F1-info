@@ -234,3 +234,17 @@ interface DriverData {
   givenName: string;
   nationality: string;
 }
+
+interface ConstructorsAPI {
+  MRData: {
+    ConstructorTable: {
+      Constructors: {}[];
+    };
+  };
+}
+
+interface ConstructorsData {
+  constructorId: string;
+  name: string;
+  nationality: string;
+}

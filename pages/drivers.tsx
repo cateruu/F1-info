@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import Driver from '../components/Drivers/Driver';
 import styles from '../styles/Drivers.module.css';
 
 type Props = {
@@ -20,7 +21,11 @@ const DriversPage = ({ driversData }: Props) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <header className={styles.header}>Drivers</header>
-      <section className={styles.drivers}></section>
+      <section className={styles.drivers}>
+        {driversData.result.map((driver) => (
+          <Driver key={driver.driverId} data={driver} />
+        ))}
+      </section>
     </main>
   );
 };

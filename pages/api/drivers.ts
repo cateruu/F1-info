@@ -114,6 +114,11 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
       image:
         'https://firebasestorage.googleapis.com/v0/b/f1-info-8b7b0.appspot.com/o/drivers%2Fzhou.png?alt=media&token=86225081-8cdc-4607-883f-3876a70315f6',
     },
+    unknown: {
+      name: 'unknown',
+      image:
+        'https://firebasestorage.googleapis.com/v0/b/f1-info-8b7b0.appspot.com/o/drivers%2Funknown.png?alt=media&token=beb716d6-d61d-48d6-b801-db4ed4398860',
+    },
   });
 };
 

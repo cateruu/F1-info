@@ -3,7 +3,9 @@
   height: 2px;
   background-color: #fff;
   border-radius: 5px;
-  position: relative;
+  position: absolute;
+  top: 20px;
+  right: 10px;
   transition: 0.1s;
 }
 

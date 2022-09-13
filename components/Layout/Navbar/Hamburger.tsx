@@ -1,17 +1,16 @@
 import { useState } from 'react';
 import styles from './Hamburger.module.css';
 
-const Hamburger = () => {
-  const [open, setOpen] = useState<boolean>(false);
+type Props = {
+  handleClick: () => void;
+  isOpen: boolean;
+};
 
-  const handleOpen = () => {
-    setOpen(!open);
-  };
-
+const Hamburger = ({ handleClick, isOpen }: Props) => {
   return (
     <div
-      className={`${styles.hamburger} ${open && styles.open}`}
-      onClick={handleOpen}
+      className={`${styles.hamburger} ${isOpen && styles.open}`}
+      onClick={handleClick}
     ></div>
   );
 };

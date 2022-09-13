@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import useWindowSize from '../../../hooks/useWindowSize';
 import Hamburger from './Hamburger';
+import MobileMenu from './MobileMenu';
 
 import styles from './Navbar.module.css';
 
@@ -40,7 +41,7 @@ const Navbar = () => {
           </Link>
         </li>
       )}
-      {width! <= 1200 && <Hamburger />}
+      {width! <= 1200 && <MobileMenu />}
     </nav>
   );
 };

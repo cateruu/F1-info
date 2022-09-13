@@ -14,7 +14,6 @@ type Constructor = {
 
 const Constructor = ({ data }: Props) => {
   const [constructorImg, setConstructorImg] = useState<Constructor>();
-  console.log(data.nationality);
 
   useEffect(() => {
     const fetchConstructor = async () => {

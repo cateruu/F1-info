@@ -1,9 +1,9 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const useScroll = () => {
   const [toTop, setToTop] = useState<number>(0);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setToTop(window.pageYOffset);
     };

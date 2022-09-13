@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import useWindowSize from '../../../hooks/useWindowSize';
-import Hamburger from './Hamburger';
 import MobileMenu from './MobileMenu';
 
 import styles from './Navbar.module.css';

@@ -62,3 +62,15 @@
 .fastest {
   color: var(--fastest);
 }
+
+@media screen and (max-width: 1000px) {
+  .constructorImgContainer {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .constructorImgContainer {
+    width: 50%;
+  }
+}

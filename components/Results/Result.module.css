@@ -6,6 +6,7 @@
   border-radius: 10px;
   margin-bottom: 5px;
   display: flex;
+  align-items: center;
 }
 
 .position {
@@ -51,4 +52,16 @@
 
 .fastest {
   color: var(--fastest);
+}
+
+@media screen and (max-width: 500px) {
+  .result {
+    font-size: 0.9rem;
+  }
+
+  .imageContainer {
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+  }
 }

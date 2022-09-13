@@ -1,3 +1,4 @@
+import useWindowSize from '../../hooks/useWindowSize';
 import styles from './Podium.module.css';
 
 import Position from './Position';
@@ -7,10 +8,20 @@ type Props = {
 };
 
 const Podium = ({ data }: Props) => {
+  const { width, height } = useWindowSize();
+
   return (
     <section className={styles.podium}>
-      <Position data={data.results[1]} />
-      <Position data={data.results[0]} />
+      {width! > 1000 ? (
+        <Position data={data.results[1]} />
+      ) : (
+        <Position data={data.results[0]} />
+      )}
+      {width! < 1000 ? (
+        <Position data={data.results[1]} />
+      ) : (
+        <Position data={data.results[0]} />
+      )}
       <Position data={data.results[2]} />
     </section>
   );

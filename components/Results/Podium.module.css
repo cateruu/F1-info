@@ -3,3 +3,10 @@
   display: grid;
   grid-template-areas: 'second first third';
 }
+
+@media screen and (max-width: 1000px) {
+  .podium {
+    display: flex;
+    flex-direction: column;
+  }
+}

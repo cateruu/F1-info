@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import useWindowSize from '../../../hooks/useWindowSize';
 
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
+  const { width, height } = useWindowSize();
+
   return (
     <nav className={styles.nav}>
       <Link href='/'>
@@ -17,23 +20,25 @@ const Navbar = () => {
           />
         </div>
       </Link>
-      <li className={styles.links}>
-        <Link href='/results'>
-          <ul>Results</ul>
-        </Link>
-        <Link href='/standings'>
-          <ul>Standings</ul>
-        </Link>
-        <Link href='/schedule'>
-          <ul>Schedule</ul>
-        </Link>
-        <Link href='/drivers'>
-          <ul>Drivers</ul>
-        </Link>
-        <Link href='/constructors'>
-          <ul>Constructors</ul>
-        </Link>
-      </li>
+      {width! >= 1200 && (
+        <li className={styles.links}>
+          <Link href='/results'>
+            <ul>Results</ul>
+          </Link>
+          <Link href='/standings'>
+            <ul>Standings</ul>
+          </Link>
+          <Link href='/schedule'>
+            <ul>Schedule</ul>
+          </Link>
+          <Link href='/drivers'>
+            <ul>Drivers</ul>
+          </Link>
+          <Link href='/constructors'>
+            <ul>Constructors</ul>
+          </Link>
+        </li>
+      )}
     </nav>
   );
 };

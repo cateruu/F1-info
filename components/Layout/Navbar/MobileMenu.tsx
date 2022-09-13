@@ -14,19 +14,19 @@ const MobileMenu = () => {
       <Hamburger handleClick={handleOpen} isOpen={open} />
       <li className={styles.links}>
         <Link href='/results'>
-          <ul>Results</ul>
+          <ul onClick={handleOpen}>Results</ul>
         </Link>
         <Link href='/standings'>
-          <ul>Standings</ul>
+          <ul onClick={handleOpen}>Standings</ul>
         </Link>
         <Link href='/schedule'>
-          <ul>Schedule</ul>
+          <ul onClick={handleOpen}>Schedule</ul>
         </Link>
         <Link href='/drivers'>
-          <ul>Drivers</ul>
+          <ul onClick={handleOpen}>Drivers</ul>
         </Link>
         <Link href='/constructors'>
-          <ul>Constructors</ul>
+          <ul onClick={handleOpen}>Constructors</ul>
         </Link>
       </li>
     </section>

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 import styles from './PreviousRace.module.css';
 import Result from '../../Results/Result';
@@ -9,6 +10,8 @@ type Props = {
 };
 
 const PreviousRace = ({ data }: Props) => {
+  const [loading, setLoading] = useState<boolean>(false);
+
   return (
     <article className={styles.prev}>
       <header className={styles.header}>Previous Race</header>
@@ -24,7 +27,14 @@ const PreviousRace = ({ data }: Props) => {
         </span>
       </p>
       {data.results.map((result) => {
-        return <Result key={result.Driver.familyName} result={result} />;
+        return (
+          <Result
+            key={result.Driver.familyName}
+            result={result}
+            setLoading={setLoading}
+            loading={loading}
+          />
+        );
       })}
       <Link href='/results'>
         <button className={styles.results}>Full results</button>

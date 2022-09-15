@@ -1,10 +1,12 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import ResultLoader from '../Loaders/ResultLoader/ResultLoader';
 import styles from './Result.module.css';
 
 type Props = {
   result: ResultType;
+  setLoading: Dispatch<SetStateAction<boolean>>;
+  loading: boolean;
 };
 
 type Constructor = {
@@ -12,9 +14,8 @@ type Constructor = {
   image: string;
 };
 
-const Result = ({ result }: Props) => {
+const Result = ({ result, setLoading, loading }: Props) => {
   const [constructorImg, setConstructorImg] = useState<Constructor>();
-  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchConstructor = async () => {
@@ -25,11 +26,12 @@ const Result = ({ result }: Props) => {
       if (result.Constructor.constructorId in res) {
         setConstructorImg(res[result.Constructor.constructorId]);
       }
+
       setLoading(false);
     };
 
     fetchConstructor().catch((err) => console.error(err));
-  }, [result]);
+  }, [result, setLoading]);
 
   return (
     <>

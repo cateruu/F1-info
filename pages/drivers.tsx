@@ -18,7 +18,7 @@ const DriversPage = ({ driversData }: Props) => {
           name='description'
           content='F1 Info portal for quckly accesible data about F1.'
         />
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/bolid.png' />
       </Head>
       <header className={styles.header}>Drivers</header>
       <section className={styles.drivers}>

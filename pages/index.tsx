@@ -20,7 +20,7 @@ const Home = ({ nextRaceData, prevRaceData }: Props) => {
           name='description'
           content='F1 Info portal for quckly accesible data about F1.'
         />
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/bolid.png' />
       </Head>
       <NextRace data={nextRaceData} />
       <PreviousRace data={prevRaceData} />

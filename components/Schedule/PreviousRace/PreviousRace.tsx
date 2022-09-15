@@ -10,8 +10,6 @@ type Props = {
 };
 
 const PreviousRace = ({ data }: Props) => {
-  const [loading, setLoading] = useState<boolean>(false);
-
   return (
     <article className={styles.prev}>
       <header className={styles.header}>Previous Race</header>
@@ -27,14 +25,7 @@ const PreviousRace = ({ data }: Props) => {
         </span>
       </p>
       {data.results.map((result) => {
-        return (
-          <Result
-            key={result.Driver.familyName}
-            result={result}
-            setLoading={setLoading}
-            loading={loading}
-          />
-        );
+        return <Result key={result.Driver.familyName} result={result} />;
       })}
       <Link href='/results'>
         <button className={styles.results}>Full results</button>

@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import styles from './Position.module.css';
 
 type Props = {
   data: ResultType;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 };
 
 type Fetch = {
@@ -11,27 +12,32 @@ type Fetch = {
   image: string;
 };
 
-const Position = ({ data }: Props) => {
+const Position = ({ data, setLoading }: Props) => {
   const [driverImg, setDriverImg] = useState<Fetch>();
   const [constructorImg, setConstructorImg] = useState<Fetch>();
 
   useEffect(() => {
     const fetchDriver = async () => {
+      setLoading(true);
       const req = await fetch('/api/drivers');
       const res = await req.json();
 
       if (data.Driver.driverId in res) {
         setDriverImg(res[data.Driver.driverId]);
       }
+      setLoading(false);
     };
 
     const fetchConstructor = async () => {
+      setLoading(true);
+
       const req = await fetch('/api/constructors');
       const res = await req.json();
 
       if (data.Constructor.constructorId in res) {
         setConstructorImg(res[data.Constructor.constructorId]);
       }
+      setLoading(false);
     };
 
     fetchDriver().catch((err) => console.error(err));

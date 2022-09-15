@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import PositionLoader from '../Loaders/PositionLoader/PositionLoader';
 import styles from './Position.module.css';
 
 type Props = {
   data: ResultType;
-  setLoading: Dispatch<SetStateAction<boolean>>;
 };
 
 type Fetch = {
@@ -12,9 +12,10 @@ type Fetch = {
   image: string;
 };
 
-const Position = ({ data, setLoading }: Props) => {
+const Position = ({ data }: Props) => {
   const [driverImg, setDriverImg] = useState<Fetch>();
   const [constructorImg, setConstructorImg] = useState<Fetch>();
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchDriver = async () => {
@@ -62,43 +63,48 @@ const Position = ({ data, setLoading }: Props) => {
   }
 
   return (
-    <div className={styles.place} style={style}>
-      <div className={styles.images}>
-        {driverImg && (
-          <Image
-            src={driverImg?.image}
-            alt={data.Driver.driverId}
-            width={206}
-            height={206}
-            style={{ zIndex: '10' }}
-          />
-        )}
-        {constructorImg && (
-          <div className={styles.constructorImgContainer}>
-            <Image
-              src={constructorImg?.image}
-              alt={data.Driver.driverId}
-              layout='fill'
-              className={styles.constructorImg}
-            />
+    <>
+      {loading && <PositionLoader />}
+      {!loading && (
+        <div className={styles.place} style={style}>
+          <div className={styles.images}>
+            {driverImg && (
+              <Image
+                src={driverImg?.image}
+                alt={data.Driver.driverId}
+                width={206}
+                height={206}
+                style={{ zIndex: '10' }}
+              />
+            )}
+            {constructorImg && (
+              <div className={styles.constructorImgContainer}>
+                <Image
+                  src={constructorImg?.image}
+                  alt={data.Driver.driverId}
+                  layout='fill'
+                  className={styles.constructorImg}
+                />
+              </div>
+            )}
           </div>
-        )}
-      </div>
-      <div className={styles.info}>
-        <h2 className={styles.position}>{data.position}</h2>
-        <p className={styles.name}>
-          {data.Driver.givenName} {data.Driver.familyName}
-        </p>
-        <div className={styles.points}>
-          <span>Points:</span>
-          <span
-            className={`${data.FastestLap?.rank === '1' && styles.fastest}`}
-          >
-            {data.points}
-          </span>
+          <div className={styles.info}>
+            <h2 className={styles.position}>{data.position}</h2>
+            <p className={styles.name}>
+              {data.Driver.givenName} {data.Driver.familyName}
+            </p>
+            <div className={styles.points}>
+              <span>Points:</span>
+              <span
+                className={`${data.FastestLap?.rank === '1' && styles.fastest}`}
+              >
+                {data.points}
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

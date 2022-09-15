@@ -12,32 +12,20 @@ type Props = {
 
 const Podium = ({ data }: Props) => {
   const { width, height } = useWindowSize();
-  const [loading, setLoading] = useState<boolean>(false);
 
   return (
     <section className={styles.podium}>
-      {loading && (
-        <>
-          <PositionLoader />
-          <PositionLoader />
-          <PositionLoader />
-        </>
+      {width! > 1000 ? (
+        <Position data={data.results[1]} />
+      ) : (
+        <Position data={data.results[0]} />
       )}
-      {!loading && (
-        <>
-          {width! > 1000 ? (
-            <Position data={data.results[1]} setLoading={setLoading} />
-          ) : (
-            <Position data={data.results[0]} setLoading={setLoading} />
-          )}
-          {width! < 1000 ? (
-            <Position data={data.results[1]} setLoading={setLoading} />
-          ) : (
-            <Position data={data.results[0]} setLoading={setLoading} />
-          )}
-          <Position data={data.results[2]} setLoading={setLoading} />
-        </>
+      {width! < 1000 ? (
+        <Position data={data.results[1]} />
+      ) : (
+        <Position data={data.results[0]} />
       )}
+      <Position data={data.results[2]} />
     </section>
   );
 };

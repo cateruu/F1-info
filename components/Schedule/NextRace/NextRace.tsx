@@ -21,18 +21,18 @@ const NextRace = ({ data }: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    setLoading(true);
     const fetchTrack = async () => {
+      setLoading(true);
       const req = await fetch('/api/tracks');
       const res = await req.json();
 
       if (data.trackId in res) {
         setTrackImg(res[data.trackId]);
       }
+      setLoading(false);
     };
 
     fetchTrack().catch((err) => console.error(err));
-    setLoading(false);
   }, [data]);
 
   return (

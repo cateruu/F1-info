@@ -26,23 +26,21 @@ const Position = ({ data }: Props) => {
       if (data.Driver.driverId in res) {
         setDriverImg(res[data.Driver.driverId]);
       }
-      setLoading(false);
     };
 
     const fetchConstructor = async () => {
       setLoading(true);
-
       const req = await fetch('/api/constructors');
       const res = await req.json();
 
       if (data.Constructor.constructorId in res) {
         setConstructorImg(res[data.Constructor.constructorId]);
       }
-      setLoading(false);
     };
 
     fetchDriver().catch((err) => console.error(err));
     fetchConstructor().catch((err) => console.error(err));
+    setLoading(false);
   }, [data]);
 
   let style;

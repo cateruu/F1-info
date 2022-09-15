@@ -5,6 +5,7 @@ import styles from './NextRace.module.css';
 import { useEffect, useState } from 'react';
 import Timer from '../Timer/Timer';
 import Session from './Session';
+import TrackLoader from '../../Loaders/TrackLoader/TrackLoader';
 
 type Props = {
   data: NextRaceType;
@@ -17,8 +18,10 @@ type TrackImg = {
 
 const NextRace = ({ data }: Props) => {
   const [trackImg, setTrackImg] = useState<TrackImg>();
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    setLoading(true);
     const fetchTrack = async () => {
       const req = await fetch('/api/tracks');
       const res = await req.json();
@@ -29,6 +32,7 @@ const NextRace = ({ data }: Props) => {
     };
 
     fetchTrack().catch((err) => console.error(err));
+    setLoading(false);
   }, [data]);
 
   return (
@@ -79,23 +83,26 @@ const NextRace = ({ data }: Props) => {
           time={data.sessions.fp1.time}
         />
       </section>
-      <section className={styles.trackInfo}>
-        {trackImg && (
-          <a
-            href={trackImg.image}
-            target='_blank'
-            rel='noreferrer'
-            className={styles.trackContainer}
-          >
-            <Image
-              src={trackImg.image}
-              alt={data.track}
-              layout='fill'
-              className={styles.trackImg}
-            />
-          </a>
-        )}
-      </section>
+      {loading && <TrackLoader />}
+      {!loading && (
+        <section className={styles.trackInfo}>
+          {trackImg && (
+            <a
+              href={trackImg.image}
+              target='_blank'
+              rel='noreferrer'
+              className={styles.trackContainer}
+            >
+              <Image
+                src={trackImg.image}
+                alt={data.track}
+                layout='fill'
+                className={styles.trackImg}
+              />
+            </a>
+          )}
+        </section>
+      )}
     </article>
   );
 };

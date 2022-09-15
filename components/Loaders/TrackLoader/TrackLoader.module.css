@@ -1,0 +1,23 @@
+.loader {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.track {
+  stroke: var(--bg-panel);
+  animation: loader 1s infinite;
+}
+
+@keyframes loader {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}

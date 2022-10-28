@@ -7,14 +7,14 @@ type Props = {
   data: ResultType;
 };
 
-type Fetch = {
+type FetchType = {
   name: string;
   image: string;
 };
 
 const Position = ({ data }: Props) => {
-  const [driverImg, setDriverImg] = useState<Fetch>();
-  const [constructorImg, setConstructorImg] = useState<Fetch>();
+  const [driverImg, setDriverImg] = useState<FetchType>();
+  const [constructorImg, setConstructorImg] = useState<FetchType>();
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {

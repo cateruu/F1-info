@@ -11,20 +11,33 @@ type Props = {
 };
 
 const Podium = ({ data }: Props) => {
-  const { width, height } = useWindowSize();
+  const { width } = useWindowSize();
+
+  const getPositionData = (
+    data: ResultDataType,
+    position: number
+  ): ResultType | undefined => {
+    if (width >= 1000) {
+      switch (position) {
+        case 1:
+          return data.results[0];
+        case 2:
+          return data.results[1];
+      }
+    }
+
+    switch (position) {
+      case 1:
+        return data.results[1];
+      case 2:
+        return data.results[0];
+    }
+  };
 
   return (
     <section className={styles.podium}>
-      {width! > 1000 ? (
-        <Position data={data.results[1]} />
-      ) : (
-        <Position data={data.results[0]} />
-      )}
-      {width! < 1000 ? (
-        <Position data={data.results[1]} />
-      ) : (
-        <Position data={data.results[0]} />
-      )}
+      <Position data={getPositionData(data, 2)} />
+      <Position data={getPositionData(data, 1)} />
       <Position data={data.results[2]} />
     </section>
   );

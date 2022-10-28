@@ -48,6 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       constructorsData,
     },
+    revalidate: 60,
   };
 };
 

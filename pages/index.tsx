@@ -83,7 +83,7 @@ export const getStaticProps: GetStaticProps = async () => {
       nextRaceData,
       prevRaceData,
     },
-    revalidate: 60,
+    revalidate: 1,
   };
 };
 

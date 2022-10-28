@@ -47,6 +47,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       driversData,
     },
+    revalidate: 60,
   };
 };
 

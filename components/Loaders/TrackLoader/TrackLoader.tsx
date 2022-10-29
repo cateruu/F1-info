@@ -13,6 +13,7 @@ const TrackLoader = () => {
         version='1.1'
         fill='none'
         className={styles.track}
+        data-testid='track-loader'
       >
         <path
           id='path4'

@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import { getLocalTime } from '../../../utils/getLocalTime';
 import styles from './NextRace.module.css';
 import { useEffect, useState } from 'react';
 import Timer from '../Timer/Timer';
@@ -39,14 +38,14 @@ const NextRace = ({ data }: Props) => {
     <article className={styles.next}>
       <section className={styles.info}>
         <header className={styles.header}>
-          Next Race{' '}
+          <span>Next Race </span>
           <Timer
             date={data.sessions.race.date}
             time={data.sessions.race.time}
           />
         </header>
         <p className={styles.gp}>
-          {data.name}{' '}
+          <span>{data.name} </span>
           <span className={styles.flag}>
             <Image
               src={`https://countryflagsapi.com/png/${data.country}`}

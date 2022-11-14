@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     domains: ['countryflagsapi.com', 'firebasestorage.googleapis.com'],
   },
+  experimental: { appDir: true },
 };
 
 module.exports = nextConfig;

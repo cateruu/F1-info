@@ -10,8 +10,10 @@
   display: flex;
   color: var(--font-nav);
   font-weight: 500;
+  list-style: none;
 }
 
-.links ul {
+.links li {
   cursor: pointer;
+  margin: 0 10px;
 }

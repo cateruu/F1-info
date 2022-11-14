@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import useWindowSize from '../../../hooks/useWindowSize';
@@ -6,7 +8,7 @@ import MobileMenu from './MobileMenu';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
-  const { width, height } = useWindowSize();
+  const { width } = useWindowSize();
 
   return (
     <nav className={styles.nav}>
@@ -22,23 +24,23 @@ const Navbar = () => {
         </div>
       </Link>
       {width! > 1200 && (
-        <li className={styles.links}>
+        <ul className={styles.links}>
           <Link href='/results'>
-            <ul>Results</ul>
+            <li>Results</li>
           </Link>
           <Link href='/standings'>
-            <ul>Standings</ul>
+            <li>Standings</li>
           </Link>
           <Link href='/schedule'>
-            <ul>Schedule</ul>
+            <li>Schedule</li>
           </Link>
           <Link href='/drivers'>
-            <ul>Drivers</ul>
+            <li>Drivers</li>
           </Link>
           <Link href='/constructors'>
-            <ul>Constructors</ul>
+            <li>Constructors</li>
           </Link>
-        </li>
+        </ul>
       )}
       {width! <= 1200 && <MobileMenu />}
     </nav>
